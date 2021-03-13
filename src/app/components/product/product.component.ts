@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product';
 
 //import { ProductResponseModel } from 'src/app/models/productResponseModel';
@@ -43,11 +44,18 @@ export class ProductComponent implements OnInit {
   dataLoaded = false;
 
 
-  constructor(private productService:ProductService) { }
+  constructor(private productService:ProductService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {//component ilk kez çalıştıgında çalışan kod
-    //console.log("Init çalıştı");
-    this.getProducts();//this fonksiyon dışındaki veriye ulaşmak için kullanılır
+    //console.log("Init çalıştı");    
+    
+    this.activatedRoute.params.subscribe(params=>{
+      if(params["categoryId"]){
+        this.getProductsByCategory(params["categoryId"])
+      }else{
+        this.getProducts();//this fonksiyon dışındaki veriye ulaşmak için kullanılır
+      }
+    })//observable olanlarda "subscribe()" kullanıyoruz
   }
 
   getProducts(){
@@ -58,6 +66,13 @@ export class ProductComponent implements OnInit {
       //console.log("Api request bitti");
     })
     //console.log("Method bitti");
+  }
+
+  getProductsByCategory(categoryId:number){    
+    this.productService.getProductsByCategory(categoryId).subscribe(response=>{//burası asenkron çalışıyor
+      this.products = response.data;
+      this.dataLoaded = true;      
+    })    
   }
 }
 

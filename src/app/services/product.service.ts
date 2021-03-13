@@ -10,12 +10,18 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProductService {
-  apiUrl = "https://localhost:44338/api/Products/GetAll";
+  apiUrl = "https://localhost:44338/api/";
 
   constructor(private httpClient:HttpClient){ } //private httpClient:HttpClient bir injection dır!!! 'private' sadece bu class da geçerli demek javascripte
    
-  getProducts():Observable<ListResponseModel<Product>>{    
-    return this.httpClient.get<ListResponseModel<Product>>(this.apiUrl);//this bu sınıfı ifade eder // get<ProductResponseModel> mepleme işlemi      
+  getProducts():Observable<ListResponseModel<Product>>{ 
+    let newPath = this.apiUrl + "products/getall";
+    return this.httpClient.get<ListResponseModel<Product>>(newPath);//this bu sınıfı ifade eder // get<ProductResponseModel> mepleme işlemi      
+  }
+
+  getProductsByCategory(categoryId:number):Observable<ListResponseModel<Product>>{  
+    let newPath = this.apiUrl + "products/getbycategory?categoryId="+categoryId;  
+    return this.httpClient.get<ListResponseModel<Product>>(newPath);//this bu sınıfı ifade eder // get<ProductResponseModel> mepleme işlemi      
   }
 
    //getProducts():Observable<ProductResponseModel>{
