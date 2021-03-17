@@ -86,4 +86,16 @@ to create new pipe write "ng g pipe pipename"
 
 ngModel'ü kullanabilmek için app.module.ts dosyasına import işlemi yapmalıyız -- import {FormsModule} from '@angular/forms'; imports: [FormsModule]
 
+to give notifications module  install "npm install ngx-toastr" press enter
+add it to angular.json file "styles": ["./node_modules/ngx-toastr/toastr.css"] 
+add import to app.modules.ts            
+import {ToastrModule} from "ngx-toastr";
+imports:[ToastrModule.forRoot({positionClass:"toast-bottom-right"})]
+
+to install animations module "npm install @angular/animations"  press enter
+add import to app.modules.ts to import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
+imports : [BrowserAnimationsModule]
+
+set tsconfig.json "strictNullChecks": false   not to check nulls
+
 
