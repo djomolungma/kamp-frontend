@@ -80,3 +80,10 @@ to get data from webApi add import to app.module
 for bootstrap version update "npm install bootstrap@5.0.0-beta2" press enter
 
 to install jquery "npm install jquery" press enter and add "./node_modules/jquery/dist/jquery.min.js", "./node_modules/bootstrap/dist/js/bootstrap.min.js" line to "scripts": [] array, restart project
+
+to create new pipe write "ng g pipe pipename"
+//pipe elimizdeki veriyi çok farklı bir şekilde göstermek için kullanılır
+
+ngModel'ü kullanabilmek için app.module.ts dosyasına import işlemi yapmalıyız -- import {FormsModule} from '@angular/forms'; imports: [FormsModule]
+
+
