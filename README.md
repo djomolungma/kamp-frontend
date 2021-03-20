@@ -79,7 +79,7 @@ to get data from webApi add import to app.module
     
 for bootstrap version update "npm install bootstrap@5.0.0-beta2" press enter
 
-to install jquery "npm install jquery" press enter and add "./node_modules/jquery/dist/jquery.min.js", "./node_modules/bootstrap/dist/js/bootstrap.min.js" line to "scripts": [] array, restart project
+to install jquery "npm install jquery" press enter and add "./node_modules/jquery/dist/jquery.min.js", "./node_modules/bootstrap/dist/js/bootstrap.min.js" line to angular.json "scripts": [] array, restart project
 
 to create new pipe write "ng g pipe pipename"
 //pipe elimizdeki veriyi çok farklı bir şekilde göstermek için kullanılır
@@ -97,5 +97,9 @@ add import to app.modules.ts to import {BrowserAnimationsModule} from "@angular/
 imports : [BrowserAnimationsModule]
 
 set tsconfig.json "strictNullChecks": false   not to check nulls
+
+//reactive forms entegrasyonu için form module destegi olması gerekiyor
+// app.module ReactiveFormsModule import edilmeli
+//import {FormGroup,FormBuilder,FormControl,Validators} from "@angular/forms"; component.ts sayfasına eklenmeli
 
 

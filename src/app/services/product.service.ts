@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';//api ye bağlanma kodu (backend teki dataya erişim için)
 //import { ProductResponseModel } from '../models/productResponseModel';
 import { Observable } from 'rxjs';
-import { ListResponseModel } from '../models/ListResponseModel';
 import { Product } from '../models/product';
+import { ResponseModel } from '../models/responseModel';
+import { ListResponseModel } from '../models/ListResponseModel';
 
 
 @Injectable({
@@ -24,6 +25,9 @@ export class ProductService {
     return this.httpClient.get<ListResponseModel<Product>>(newPath);//this bu sınıfı ifade eder // get<ProductResponseModel> mepleme işlemi      
   }
 
+  add(product:Product):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "products/add",product);
+  }
    //getProducts():Observable<ProductResponseModel>{
     //api ye bağlanma kodu
    // return this.httpClient.get<ProductResponseModel>(this.apiUrl);//this bu sınıfı ifade eder // get<ProductResponseModel> mepleme işlemi      
