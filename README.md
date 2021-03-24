@@ -102,4 +102,9 @@ set tsconfig.json "strictNullChecks": false   not to check nulls
 // app.module ReactiveFormsModule import edilmeli
 //import {FormGroup,FormBuilder,FormControl,Validators} from "@angular/forms"; component.ts sayfasına eklenmeli
 
+component silmek için daha önce oluşturulmuş komponente sag tikla ve sil de, daha sonra app.module.ts dosyasından daha önce tanımlamış olduğumuz kompanenti ve onun importunu silmeliyiz
 
+to create interceptor write "ng g interceptor interceptoname" press enter (interceptor -->araya girma demek)
+
+to create guard write "ng g guard guardname" press enter to create select "CanActivate" press enter
+guadın çalışması için app-routing.module.ts yi düzenle örn : {path:"products/add", component:ProductAddComponent,canActivate:[LoginGuard]}
